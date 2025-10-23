@@ -1,0 +1,137 @@
+/* 🌈 Diseño completamente diferente */
+.App {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #fef3c7, #fde68a, #facc15);
+  font-family: 'Nunito', sans-serif;
+  color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 4rem;
+}
+
+/* 🧭 Encabezado superior flotante */
+.App-header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid #fbbf24;
+  padding: 1.5rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  font-size: 2.4rem;
+  margin: 0;
+  color: #78350f;
+  text-shadow: 1px 2px 0 #fef3c7;
+  font-weight: 800;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #92400e;
+  margin-top: 0.3rem;
+}
+
+/* 🧩 Lista tipo tarjetas horizontales */
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 90%;
+  margin-top: 2rem;
+}
+
+/* 🎴 Tarjeta horizontal estilo “colección” */
+.pokemon-card {
+  width: 300px;
+  height: 140px;
+  background: #fff7ed;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #fcd34d;
+}
+
+.pokemon-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(252, 211, 77, 0.1), rgba(249, 115, 22, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pokemon-card:hover::before {
+  opacity: 1;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05) rotate(-1deg);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* 🖼️ Sprite del Pokémon */
+.pokemon-sprite {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #fef3c7, #fcd34d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  image-rendering: pixelated;
+}
+
+/* 🔤 Nombre */
+.pokemon-name {
+  text-transform: capitalize;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: #78350f;
+}
+
+/* 💬 Detalle adicional (por ejemplo, tipo o ID) */
+.pokemon-card small {
+  color: #92400e;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* 📱 Responsive */
+@media (max-width: 600px) {
+  .pokemon-card {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+    padding: 1.2rem;
+  }
+
+  .pokemon-sprite {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pokemon-name {
+    font-size: 1.2rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}
