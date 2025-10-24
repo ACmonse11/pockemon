@@ -1,4 +1,3 @@
-/* 🌈 Diseño completamente diferente */
 .App {
   min-height: 100vh;
   background: linear-gradient(160deg, #fef3c7, #fde68a, #facc15);
@@ -10,7 +9,7 @@
   padding-bottom: 4rem;
 }
 
-/* 🧭 Encabezado superior flotante */
+/* Encabezado */
 .App-header {
   width: 100%;
   background: rgba(255, 255, 255, 0.75);
@@ -21,117 +20,133 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-.App-header h1 {
-  font-size: 2.4rem;
-  margin: 0;
-  color: #78350f;
-  text-shadow: 1px 2px 0 #fef3c7;
-  font-weight: 800;
-}
-
-.subtitle {
-  font-size: 1.1rem;
-  color: #92400e;
-  margin-top: 0.3rem;
-}
-
-/* 🧩 Lista tipo tarjetas horizontales */
 .pokemon-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1.5rem;
-  width: 90%;
-  margin-top: 2rem;
+  max-width: 1000px;
 }
 
-/* 🎴 Tarjeta horizontal estilo “colección” */
 .pokemon-card {
-  width: 300px;
-  height: 140px;
-  background: #fff7ed;
-  border-radius: 18px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  position: relative;
-  overflow: hidden;
-  border: 3px solid #fcd34d;
-}
-
-.pokemon-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(252, 211, 77, 0.1), rgba(249, 115, 22, 0.1));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.pokemon-card:hover::before {
-  opacity: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .pokemon-card:hover {
-  transform: scale(1.05) rotate(-1deg);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* 🖼️ Sprite del Pokémon */
 .pokemon-sprite {
-  width: 90px;
-  height: 90px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 40%, #fef3c7, #fcd34d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  image-rendering: pixelated;
+  width: 96px;
+  height: 96px;
 }
 
-/* 🔤 Nombre */
 .pokemon-name {
+  font-weight: bold;
+  font-size: 1.2rem;
   text-transform: capitalize;
-  font-weight: 800;
-  font-size: 1.4rem;
-  color: #78350f;
+  margin-top: 0.5rem;
 }
 
-/* 💬 Detalle adicional (por ejemplo, tipo o ID) */
-.pokemon-card small {
-  color: #92400e;
-  font-weight: 600;
-  margin-top: 0.25rem;
-  display: block;
+.pokemon-abilities {
+  margin-top: 0.8rem;
+  padding: 0;
+  list-style: none;
 }
 
-/* 📱 Responsive */
-@media (max-width: 600px) {
-  .pokemon-card {
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-    text-align: center;
-    padding: 1.2rem;
-  }
-
-  .pokemon-sprite {
-    width: 80px;
-    height: 80px;
-  }
-
-  .pokemon-name {
-    font-size: 1.2rem;
-  }
-
-  .subtitle {
-    font-size: 0.9rem;
-  }
+.pokemon-ability {
+  font-size: 0.9rem;
+  color: #374151;
+  background: #fef9c3;
+  border-radius: 12px;
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  margin: 0.2rem;
 }
+
+/* Modal */
+.pokemon-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff6db;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 350px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #dc2626;
+}
+
+.stat-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #b91c1c;
+}
+
+.stat-image {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+.stats-list {
+  list-style: none;
+  padding: 0;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  margin-bottom: 0.4rem;
+  font-weight: bold;
+}
+
+.stat-name {
+  color: #1e3a8a;
+}
+
+.stat-value {
+  color: #111827;
+}
+
+/* Colores de cada stat */
+.stat-attack { background: #fecaca; }
+.stat-defense { background: #fde68a; }
+.stat-special-attack { background: #bfdbfe; }
+.stat-special-defense { background: #fef9c3; }
+.stat-speed { background: #fca5a5; }
+.stat-hp { background: #a7f3d0; }
